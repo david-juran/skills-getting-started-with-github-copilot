@@ -8,6 +8,9 @@ on:
     branches:
       - "*"
 
+permissions:
+  contents: read
+
 jobs:
   java-compatibility:
     name: Test Java ${{ matrix.java-version }}
