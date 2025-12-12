@@ -4,6 +4,7 @@
 ![](https://github.com/david-juran/skills-getting-started-with-github-copilot/actions/workflows/2-first-introduction.yml/badge.svg)
 ![](https://github.com/david-juran/skills-getting-started-with-github-copilot/actions/workflows/3-copilot-edits.yml/badge.svg)
 ![](https://github.com/david-juran/skills-getting-started-with-github-copilot/actions/workflows/4-copilot-on-github.yml/badge.svg)
+![](https://github.com/david-juran/skills-getting-started-with-github-copilot/actions/workflows/java-compatibility.yml/badge.svg)
 
 _Get started using GitHub Copilot in less than an hour._
 
@@ -52,6 +53,14 @@ In this exercise, you will:
 
 > [!IMPORTANT]
 > The **Start Exercise** button will activate after copying the repository. You will probably need to refresh the page.
+
+---
+
+## Java Compatibility Check
+
+This repository includes an automated Java compatibility verification system to ensure the ruleset works correctly with supported Java versions.
+
+See the [java-compat-check directory](java-compat-check/) for more details.
 
 ---
 

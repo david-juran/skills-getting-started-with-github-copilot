@@ -1,0 +1,47 @@
+name: Java Compatibility Check
+
+on:
+  push:
+    branches:
+      - "*"
+  pull_request:
+    branches:
+      - "*"
+
+permissions:
+  contents: read
+
+jobs:
+  java-compatibility:
+    name: Test Java ${{ matrix.java-version }}
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        java-version: [8, 25]
+      fail-fast: false
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Set up Java ${{ matrix.java-version }}
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: ${{ matrix.java-version }}
+          cache: 'maven'
+      
+      - name: Display Java version
+        run: java -version
+      
+      - name: Build with Maven
+        working-directory: java-compat-check
+        run: mvn clean compile
+      
+      - name: Run compatibility check
+        working-directory: java-compat-check
+        run: mvn exec:java
+      
+      - name: Verify compilation success
+        run: echo "✓ Java ${{ matrix.java-version }} compatibility verified"
